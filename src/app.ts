@@ -2,7 +2,7 @@ import express, { Express , Request, Response } from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import compression from 'compression';
-import databaseInstance from './databases/init.mongodb';
+import databaseInstance from './databases/init.database';
 
 // Create an Express application
 const app: Express = express();
