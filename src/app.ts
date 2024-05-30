@@ -2,6 +2,7 @@ import express, { Express , Request, Response } from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import compression from 'compression';
+import databaseInstance from './databases/init.mongodb';
 
 // Create an Express application
 const app: Express = express();
@@ -12,6 +13,7 @@ app.use(helmet());
 app.use(compression());
 
 // init database
+databaseInstance
 
 // init routes
 app.get('/', (req, res, next) => {
