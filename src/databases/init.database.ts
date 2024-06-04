@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { countConnect } from "../helpers/check.connect.helper";
 
 const connectString = "mongodb://127.0.0.1:27017/Kyiv-LuxeBouquets";
 
@@ -17,6 +18,7 @@ class Database {
         mongoose
             .connect(connectString)
             .then(() => {
+                countConnect()
                 console.log("Database connection successful");
             })
             .catch((err) => {

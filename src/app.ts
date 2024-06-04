@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import compression from 'compression';
 import databaseInstance from './databases/init.database';
+import { checkOverload } from './helpers/check.connect.helper';
 
 // Create an Express application
 const app: Express = express();
@@ -12,8 +13,12 @@ app.use(morgan('dev'));
 app.use(helmet());
 app.use(compression());
 
+
 // init database
 databaseInstance
+
+// check connection overload
+checkOverload()
 
 // init routes
 app.get('/', (req, res, next) => {
