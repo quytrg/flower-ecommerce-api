@@ -16,7 +16,9 @@ class Database {
 
     _connect(type: string) {
         mongoose
-            .connect(connectString)
+            .connect(connectString, {
+                maxPoolSize: 20
+            })
             .then(() => {
                 countConnect()
                 console.log("Database connection successful");
